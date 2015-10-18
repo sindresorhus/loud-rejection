@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test.js || exit 0"
+    "test": "xo && ava || exit 0"
   },
   "files": [
     "index.js"
