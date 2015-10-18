@@ -4,9 +4,7 @@
 
 By default, promises fail silently if you don't attach a `.catch()` handler to them.
 
-This is useful for CLI tools so you don't have to manually `.catch()` all the promises.
-
-**Should NOT be used in reusable modules. Only in top-level apps / CLI tools.**
+Use it in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**
 
 
 ## Install
