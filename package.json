@@ -9,6 +9,9 @@
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
+  "contributors": [
+    "Linus Unnebäck <linus@folkdatorn.se>"
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
