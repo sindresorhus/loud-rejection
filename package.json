@@ -9,11 +9,14 @@
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
+  "contributors": [
+    "Linus Unnebäck <linus@folkdatorn.se>"
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava || exit 0"
+    "test": "xo index.js && ava"
   },
   "files": [
     "index.js"
@@ -32,5 +35,8 @@
   "devDependencies": {
     "ava": "*",
     "xo": "*"
+  },
+  "dependencies": {
+    "weak": "^1.0.0"
   }
 }
