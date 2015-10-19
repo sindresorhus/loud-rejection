@@ -32,5 +32,8 @@
   "devDependencies": {
     "ava": "*",
     "xo": "*"
+  },
+  "dependencies": {
+    "weak": "^1.0.0"
   }
 }
