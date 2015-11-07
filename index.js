@@ -1,13 +1,15 @@
 'use strict';
+
+var onExit = require('signal-exit');
 var installed = false;
 
 function outputRejectedMessage(err) {
 	if (err instanceof Error) {
 		console.error(err.stack);
-	} else if (err) {
-		console.error('Promise rejected with value:', err);
-	} else {
+	} else if (typeof err === 'undefined') {
 		console.error('Promise rejected no value');
+	} else {
+		console.error('Promise rejected with value:', err);
 	}
 }
 
@@ -32,7 +34,7 @@ module.exports = function () {
 		unhandledRejections.splice(index, 1);
 	});
 
-	process.on('exit', function () {
+	onExit(function () {
 		if (unhandledRejections.length > 0) {
 			unhandledRejections.forEach(function (x) {
 				outputRejectedMessage(x.reason);
