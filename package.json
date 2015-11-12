@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava || exit 0"
+    "test": "xo && nyc --reporter=text --reporter=lcov ava"
   },
   "files": [
     "index.js"
@@ -29,8 +29,28 @@
     "handler",
     "exit"
   ],
+  "xo": {
+    "ignores": [
+      "test.js"
+    ]
+  },
+  "config": {
+    "nyc": {
+      "exclude": [
+        "node_modules/",
+        "test.js",
+        "fixture.js"
+      ]
+    }
+  },
   "devDependencies": {
-    "ava": "*",
-    "xo": "*"
+    "ava": "^0.4.2",
+    "bluebird": "^3.0.5",
+    "get-stream": "^1.0.0",
+    "nyc": "^3.2.2",
+    "xo": "^0.10.1"
+  },
+  "dependencies": {
+    "signal-exit": "^2.1.2"
   }
 }
