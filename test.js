@@ -6,10 +6,12 @@ import {fork} from 'child_process';
 // setTimeout as a Promise. Use it to delay via `await`
 function tick(time) {
 	time = time || 0;
+
 	if (process.env.TRAVIS) {
 		// slow things down for reliable tests on Travis-CI
 		time *= 10;
 	}
+
 	return new Promise(resolve => setTimeout(resolve, time));
 }
 
@@ -17,36 +19,36 @@ test.beforeEach(t => {
 	const child = fork('fixture.js', {silent: true});
 
 	const exit = new Promise((resolve, reject) =>
-			child.on('exit', code =>
-					(code > 0 ? reject : resolve)(code)
-			)
+		child.on('exit', code =>
+			(code > 0 ? reject : resolve)(code)
+		)
 	);
 
 	t.context = {
-		// Tell the child to create a promise, and reject it
+		// tell the child to create a promise, and reject it
 		rejectWithError: (key, message) => child.send({action: 'reject-error', key, message}),
 		rejectWithValue: (key, value) => child.send({action: 'reject-value', key, value}),
 		rejectWithNothing: key => child.send({action: 'reject-nothing', key}),
 
-		// Tell the child to handle the promise previously rejected
+		// tell the child to handle the promise previously rejected
 		handle: key => child.send({action: 'handle', key}),
 
-		// Tell the child to reinstall loudRejection
+		// tell the child to reinstall loudRejection
 		reinstall: () => child.send({action: 'reinstall'}),
 
-		// Kill the child (returns a promise for when the child is done).
+		// kill the child (returns a promise for when the child is done)
 		kill: () => {
 			child.kill();
 			return exit;
 		},
 
-		// The stdout of the child. Useful for debug.
+		// the stdout of the child. Useful for debug
 		stdout: getStream(child.stdout),
 
-		// The stderr of the child. This is where unhandledRejections will be logged.
+		// the stderr of the child. This is where unhandledRejections will be logged
 		stderr: getStream(child.stderr),
 
-		// Promise for when the child has exited
+		// promise for when the child has exited
 		exit
 	};
 
@@ -54,6 +56,7 @@ test.beforeEach(t => {
 		if (message.status !== 'ready') {
 			t.fail(`I got a message I don't understand: ${JSON.stringify(message)}`);
 		}
+
 		t.end();
 	});
 });

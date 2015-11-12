@@ -20,15 +20,30 @@
   ],
   "keywords": [
     "promise",
+    "promises",
     "unhandled",
+    "uncaught",
     "rejection",
     "loud",
     "fail",
     "catch",
     "throw",
     "handler",
-    "exit"
+    "exit",
+    "debug",
+    "debugging",
+    "verbose"
   ],
+  "dependencies": {
+    "signal-exit": "^2.1.2"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "bluebird": "^3.0.5",
+    "get-stream": "^1.0.0",
+    "nyc": "^3.2.2",
+    "xo": "*"
+  },
   "xo": {
     "ignores": [
       "test.js"
@@ -37,20 +52,10 @@
   "config": {
     "nyc": {
       "exclude": [
-        "node_modules/",
+        "node_modules",
         "test.js",
         "fixture.js"
       ]
     }
-  },
-  "devDependencies": {
-    "ava": "^0.4.2",
-    "bluebird": "^3.0.5",
-    "get-stream": "^1.0.0",
-    "nyc": "^3.2.2",
-    "xo": "^0.10.1"
-  },
-  "dependencies": {
-    "signal-exit": "^2.1.2"
   }
 }

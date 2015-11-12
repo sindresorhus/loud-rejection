@@ -1,5 +1,4 @@
 'use strict';
-
 var onExit = require('signal-exit');
 var installed = false;
 
@@ -31,6 +30,7 @@ module.exports = function () {
 		var index = unhandledRejections.reduce(function (result, item, idx) {
 			return (item.p === p ? idx : result);
 		}, -1);
+
 		unhandledRejections.splice(index, 1);
 	});
 
@@ -39,6 +39,7 @@ module.exports = function () {
 			unhandledRejections.forEach(function (x) {
 				outputRejectedMessage(x.reason);
 			});
+
 			process.exitCode = 1;
 		}
 	});

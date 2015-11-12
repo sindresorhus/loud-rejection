@@ -1,7 +1,6 @@
 'use strict';
-
-var loudRejection = require('./');
 var Promise = require('bluebird');
+var loudRejection = require('./');
 
 loudRejection();
 
@@ -12,7 +11,7 @@ console.log('started');
 function reject(key, reason) {
 	// IMPORTANT: key is always logged to stdout
 	// Make sure to remember that when grepping output (keep key and message different).
-	console.log('rejecting: ' + key);
+	console.log('rejecting:', key);
 	promises[key] = new Promise(function (resolve, reject) {
 		reject(reason);
 	});
@@ -35,8 +34,6 @@ process.on('message', function (message) {
 	}
 });
 
-process.send({
-	status: 'ready'
-});
+process.send({status: 'ready'});
 
 setTimeout(function () {}, 30000);
