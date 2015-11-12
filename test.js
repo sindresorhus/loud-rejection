@@ -1,18 +1,12 @@
 'use strict';
+import {fork} from 'child_process';
 import test from 'ava';
 import getStream from 'get-stream';
-import {fork} from 'child_process';
+import delay from 'delay';
 
-// setTimeout as a Promise. Use it to delay via `await`
 function tick(time) {
-	time = time || 0;
-
-	if (process.env.TRAVIS) {
-		// slow things down for reliable tests on Travis-CI
-		time *= 10;
-	}
-
-	return new Promise(resolve => setTimeout(resolve, time));
+	// slow things down for reliable tests on Travis CI
+	return delay(process.env.CI ? time * 10 : time);
 }
 
 test.beforeEach(t => {
