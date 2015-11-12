@@ -20,6 +20,7 @@ $ npm install --save loud-rejection
 const loudRejection = require('loud-rejection');
 const promiseFn = require('promise-fn');
 
+// Install the unhandledRejection listeners
 loudRejection();
 
 promiseFn();
@@ -38,6 +39,15 @@ function error(err) {
 promiseFn().catch(error);
 ```
 
+### Register Script
+
+As an alternative to requiring and invoking a function as described above, you may simply require 
+ `loud-rejection/register`. It automatically installs the unhandledRejection listeners for you.
+ This is handy for ES2015 style imports:
+
+```js
+import 'loud-rejection/register';
+```
 
 ## License
 

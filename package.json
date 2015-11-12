@@ -17,7 +17,8 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "register.js"
   ],
   "keywords": [
     "promise",
