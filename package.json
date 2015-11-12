@@ -13,7 +13,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && nyc --reporter=text --reporter=lcov ava"
+    "test": "xo && nyc ava",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "files": [
     "index.js"
@@ -40,6 +41,7 @@
   "devDependencies": {
     "ava": "*",
     "bluebird": "^3.0.5",
+    "coveralls": "^2.11.4",
     "get-stream": "^1.0.0",
     "nyc": "^3.2.2",
     "xo": "*"
