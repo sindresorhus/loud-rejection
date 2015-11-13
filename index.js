@@ -1,5 +1,6 @@
 'use strict';
 var onExit = require('signal-exit');
+var api = require('./api');
 var installed = false;
 
 function outputRejectedMessage(err) {
@@ -13,8 +14,6 @@ function outputRejectedMessage(err) {
 }
 
 module.exports = function () {
-	var unhandledRejections = [];
-
 	if (installed) {
 		console.trace('WARN: loud rejection called more than once');
 		return;
@@ -22,19 +21,11 @@ module.exports = function () {
 
 	installed = true;
 
-	process.on('unhandledRejection', function (reason, p) {
-		unhandledRejections.push({reason: reason, p: p});
-	});
-
-	process.on('rejectionHandled', function (p) {
-		var index = unhandledRejections.reduce(function (result, item, idx) {
-			return (item.p === p ? idx : result);
-		}, -1);
-
-		unhandledRejections.splice(index, 1);
-	});
+	var tracker = api(process);
 
 	onExit(function () {
+		var unhandledRejections = tracker.currentlyUnhandled();
+
 		if (unhandledRejections.length > 0) {
 			unhandledRejections.forEach(function (x) {
 				outputRejectedMessage(x.reason);

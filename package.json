@@ -18,7 +18,8 @@
   },
   "files": [
     "index.js",
-    "register.js"
+    "register.js",
+    "api.js"
   ],
   "keywords": [
     "promise",
