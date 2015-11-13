@@ -39,15 +39,16 @@ function error(err) {
 promiseFn().catch(error);
 ```
 
-### Register Script
+### Register script
 
-As an alternative to requiring and invoking a function as described above, you may simply require 
- `loud-rejection/register`. It automatically installs the unhandledRejection listeners for you.
- This is handy for ES2015 style imports:
+Alternatively to the above, you may simply require `loud-rejection/register` and the unhandledRejection listener will be automagically installed for you.
+
+This is handy for ES2015 imports:
 
 ```js
 import 'loud-rejection/register';
 ```
+
 
 ## License
 
