@@ -46,19 +46,12 @@
     "coveralls": "^2.11.4",
     "delay": "^1.0.0",
     "get-stream": "^1.0.0",
-    "nyc": "^3.2.2",
+    "nyc": "^5.0.1",
     "xo": "*"
-  },
-  "xo": {
-    "ignores": [
-      "test.js"
-    ]
   },
   "config": {
     "nyc": {
       "exclude": [
-        "node_modules",
-        "test.js",
         "fixture.js"
       ]
     }

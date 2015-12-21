@@ -9,7 +9,7 @@ function tick(time) {
 	return delay(process.env.CI ? time * 10 : time);
 }
 
-test.beforeEach(t => {
+test.cb.beforeEach(t => {
 	const child = fork('fixture.js', {silent: true});
 
 	const exit = new Promise((resolve, reject) =>
