@@ -1,4 +1,10 @@
 'use strict';
+var findIndex = require('array-findindex');
+
+// TODO Move ponyfill to separate module.
+Array.prototype.findIndex = Array.prototype.findIndex || function (callback, thisArg) {
+	return findIndex(this, callback, thisArg);
+};
 
 // WARNING: This undocumented API is subject to change.
 
@@ -10,9 +16,9 @@ module.exports = function (process) {
 	});
 
 	process.on('rejectionHandled', function (p) {
-		var index = unhandledRejections.reduce(function (result, item, idx) {
-			return (item.promise === p ? idx : result);
-		}, -1);
+		var index = unhandledRejections.findIndex(function (item) {
+			return (item.promise === p);
+		});
 
 		unhandledRejections.splice(index, 1);
 	});
