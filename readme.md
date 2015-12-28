@@ -1,4 +1,9 @@
-# loud-rejection [![Build Status](https://travis-ci.org/sindresorhus/loud-rejection.svg?branch=master)](https://travis-ci.org/sindresorhus/loud-rejection) [![Coverage Status](https://coveralls.io/repos/sindresorhus/loud-rejection/badge.svg?branch=master&service=github)](https://coveralls.io/github/sindresorhus/loud-rejection?branch=master)
+# loud-rejection
+
+[![npm version][npm-badge]][npm-url]
+[![Build Status][travis-badge]][travis-url]
+[![Coverage Status][coveralls-badge]][coveralls-url]
+[![Dependency Status][david-badge]][david-url]
 
 > Make unhandled promise rejections fail loudly instead of the default [silent fail](https://gist.github.com/benjamingr/0237932cee84712951a2)
 
@@ -53,3 +58,12 @@ import 'loud-rejection/register';
 ## License
 
 MIT © [Sindre Sorhus](http://sindresorhus.com)
+
+[npm-badge]: https://badge.fury.io/js/loud-rejection.svg?branch=master
+[npm-url]: https://badge.fury.io/js/loud-rejection
+[travis-badge]: https://api.travis-ci.org/sindresorhus/loud-rejection.svg?branch=master
+[travis-url]: https://travis-ci.org/sindresorhus/loud-rejection
+[coveralls-badge]:https://coveralls.io/repos/sindresorhus/loud-rejection/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/sindresorhus/loud-rejection?branch=master
+[david-badge]: https://david-dm.org/sindresorhus/loud-rejection.svg
+[david-url]: https://david-dm.org/sindresorhus/loud-rejection
