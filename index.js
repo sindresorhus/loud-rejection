@@ -23,6 +23,10 @@ module.exports = function () {
 
 	var tracker = api(process);
 
+	process.on('beforeExit', function () {
+		setTimeout(function () {}, 10);
+	});
+
 	onExit(function () {
 		var unhandledRejections = tracker.currentlyUnhandled();
 
@@ -33,5 +37,5 @@ module.exports = function () {
 
 			process.exitCode = 1;
 		}
-	});
+	}, {alwaysLast: true});
 };
