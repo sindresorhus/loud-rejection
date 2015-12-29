@@ -38,6 +38,7 @@
     "verbose"
   ],
   "dependencies": {
+    "array-findindex": "^0.1.0",
     "signal-exit": "^2.1.2"
   },
   "devDependencies": {
