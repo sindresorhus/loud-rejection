@@ -28,6 +28,10 @@ process.on('message', function (message) {
 		case 'reject-nothing': return reject(message.key);
 		case 'reinstall': return loudRejection();
 		case 'handle': return handle(message.key);
+		case 'sync-exit':
+			Promise.reject(new Error('some foo'));
+			process.exit(0);
+			return;
 		default:
 			console.error('unknown message received: ', message);
 			process.exit(1);

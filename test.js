@@ -23,6 +23,7 @@ test.cb.beforeEach(t => {
 		rejectWithError: (key, message) => child.send({action: 'reject-error', key, message}),
 		rejectWithValue: (key, value) => child.send({action: 'reject-value', key, value}),
 		rejectWithNothing: key => child.send({action: 'reject-nothing', key}),
+		fastExit: () => child.send({action: 'fast-exit'}),
 
 		// tell the child to handle the promise previously rejected
 		handle: key => child.send({action: 'handle', key}),
@@ -166,4 +167,11 @@ test('will warn if installed twice', async t => {
 	await child.kill();
 
 	t.true(/WARN: loud rejection called more than once/.test(await child.stderr));
+});
+
+test('will still produce an error if process exits synchronously after Promise rejection', async t => {
+	const child = t.context;
+
+	child.fastExit();
+	await child.exit;
 });
