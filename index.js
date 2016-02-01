@@ -15,7 +15,6 @@ function outputRejectedMessage(err) {
 
 module.exports = function () {
 	if (installed) {
-		console.trace('WARN: loud rejection called more than once');
 		return;
 	}
 

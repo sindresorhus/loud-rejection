@@ -1,4 +1,3 @@
-'use strict';
 import {fork} from 'child_process';
 import test from 'ava';
 import getStream from 'get-stream';
@@ -156,14 +155,4 @@ test('rejection with no value', async t => {
 	await child.kill();
 
 	t.true(/Promise rejected no value/.test(await child.stderr));
-});
-
-test('will warn if installed twice', async t => {
-	const child = t.context;
-
-	child.reinstall();
-	await tick(20);
-	await child.kill();
-
-	t.true(/WARN: loud rejection called more than once/.test(await child.stderr));
 });
