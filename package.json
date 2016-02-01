@@ -1,6 +1,6 @@
 {
   "name": "loud-rejection",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Make unhandled promise rejections fail loudly instead of the default silent fail",
   "license": "MIT",
   "repository": "sindresorhus/loud-rejection",
