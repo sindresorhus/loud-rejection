@@ -70,7 +70,7 @@ test('one unhandled rejection', async t => {
 	await tick(20);
 	await child.kill();
 
-	t.true(/foo123/.test(await child.stderr));
+	t.regex(await child.stderr, /foo123/);
 });
 
 test('two unhandled rejections', async t => {
@@ -81,8 +81,8 @@ test('two unhandled rejections', async t => {
 	await tick(20);
 	await child.kill();
 
-	t.true(/foo456/.test(await child.stderr));
-	t.true(/bar789/.test(await child.stderr));
+	t.regex(await child.stderr, /foo456/);
+	t.regex(await child.stderr, /bar789/);
 });
 
 test('one rejection that is handled before exit', async t => {
@@ -108,7 +108,7 @@ test('two rejections, first one handled', async t => {
 	await child.kill();
 
 	t.false(/foo987/.test(await child.stderr));
-	t.true(/bar654/.test(await child.stderr));
+	t.regex(await child.stderr, /bar654/);
 });
 
 test('two rejections, last one handled', async t => {
@@ -121,7 +121,7 @@ test('two rejections, last one handled', async t => {
 	await tick(20);
 	await child.kill();
 
-	t.true(/foo987/.test(await child.stderr));
+	t.regex(await child.stderr, /foo987/);
 	t.false(/bar654/.test(await child.stderr));
 });
 
@@ -132,7 +132,7 @@ test('rejection with a string value', async t => {
 	await tick(20);
 	await child.kill();
 
-	t.true(/Promise rejected with value: foo123/.test(await child.stderr));
+	t.regex(await child.stderr, /Promise rejected with value: 'foo123'/);
 });
 
 test('rejection with a falsy value', async t => {
@@ -143,8 +143,8 @@ test('rejection with a falsy value', async t => {
 	await tick(20);
 	await child.kill();
 
-	t.true(/Promise rejected with value: false/.test(await child.stderr));
-	t.true(/Promise rejected with value: 0/.test(await child.stderr));
+	t.regex(await child.stderr, /Promise rejected with value: false/);
+	t.regex(await child.stderr, /Promise rejected with value: 0/);
 });
 
 test('rejection with no value', async t => {
@@ -154,5 +154,5 @@ test('rejection with no value', async t => {
 	await tick(20);
 	await child.kill();
 
-	t.true(/Promise rejected no value/.test(await child.stderr));
+	t.regex(await child.stderr, /Promise rejected with value: undefined/);
 });

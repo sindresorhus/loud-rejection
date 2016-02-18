@@ -1,4 +1,5 @@
 'use strict';
+var util = require('util');
 var onExit = require('signal-exit');
 var api = require('./api');
 var installed = false;
@@ -6,10 +7,8 @@ var installed = false;
 function outputRejectedMessage(err) {
 	if (err instanceof Error) {
 		console.error(err.stack);
-	} else if (typeof err === 'undefined') {
-		console.error('Promise rejected no value');
 	} else {
-		console.error('Promise rejected with value:', err);
+		console.error('Promise rejected with value: ' + util.inspect(err));
 	}
 }
 
