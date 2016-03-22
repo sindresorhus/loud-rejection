@@ -4,7 +4,8 @@
 
 By default, promises fail silently if you don't attach a `.catch()` handler to them.
 
-Use it in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**
+Use this in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**<br>
+Not needed in the browser as unhandled promises are shown in the console.
 
 
 ## Install
