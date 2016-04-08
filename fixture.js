@@ -11,7 +11,7 @@ console.log('started');
 function reject(key, reason) {
 	// IMPORTANT: key is always logged to stdout
 	// Make sure to remember that when grepping output (keep key and message different).
-	console.log('rejecting:', key);
+	console.log('Rejecting:', key);
 	promises[key] = new Promise(function (resolve, reject) {
 		reject(reason);
 	});
@@ -29,7 +29,7 @@ process.on('message', function (message) {
 		case 'reinstall': return loudRejection();
 		case 'handle': return handle(message.key);
 		default:
-			console.error('unknown message received: ', message);
+			console.error('Unknown message received:', message);
 			process.exit(1);
 	}
 });

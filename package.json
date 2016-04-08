@@ -46,15 +46,13 @@
     "bluebird": "^3.0.5",
     "coveralls": "^2.11.4",
     "delay": "^1.0.0",
-    "get-stream": "^1.0.0",
-    "nyc": "^5.0.1",
+    "get-stream": "^2.0.0",
+    "nyc": "^6.2.1",
     "xo": "*"
   },
-  "config": {
-    "nyc": {
-      "exclude": [
-        "fixture.js"
-      ]
-    }
+  "nyc": {
+    "exclude": [
+      "fixture.js"
+    ]
   }
 }
