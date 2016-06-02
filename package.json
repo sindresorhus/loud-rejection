@@ -38,7 +38,7 @@
     "verbose"
   ],
   "dependencies": {
-    "currently-unhandled": "^0.3.0",
+    "currently-unhandled": "^0.4.0",
     "signal-exit": "^2.1.2"
   },
   "devDependencies": {
