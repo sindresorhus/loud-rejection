@@ -38,7 +38,7 @@
     "verbose"
   ],
   "dependencies": {
-    "array-find-index": "^1.0.0",
+    "currently-unhandled": "^0.3.0",
     "signal-exit": "^2.1.2"
   },
   "devDependencies": {
