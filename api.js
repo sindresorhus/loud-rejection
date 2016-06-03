@@ -8,4 +8,4 @@ module.exports = util.deprecate(function (process) {
 	return {
 		currentlyUnhandled: currentlyUnhandled(process)
 	};
-}, 'loudRejection/api is deprecated. Use currently-unhandled instead.');
+}, 'loudRejection/api is deprecated. Use the currently-unhandled module instead.');
