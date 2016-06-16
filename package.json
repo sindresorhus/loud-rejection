@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "currently-unhandled": "^0.4.1",
-    "signal-exit": "^2.1.2"
+    "signal-exit": "^3.0.0"
   },
   "devDependencies": {
     "ava": "*",
