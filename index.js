@@ -2,6 +2,7 @@
 var util = require('util');
 var onExit = require('signal-exit');
 var currentlyUnhandled = require('currently-unhandled');
+
 var installed = false;
 
 function outputRejectedMessage(err) {

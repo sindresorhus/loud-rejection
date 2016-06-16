@@ -19,12 +19,26 @@ test.cb.beforeEach(t => {
 
 	t.context = {
 		// tell the child to create a promise, and reject it
-		rejectWithError: (key, message) => child.send({action: 'reject-error', key, message}),
-		rejectWithValue: (key, value) => child.send({action: 'reject-value', key, value}),
-		rejectWithNothing: key => child.send({action: 'reject-nothing', key}),
+		rejectWithError: (key, message) => child.send({
+			action: 'reject-error',
+			key,
+			message
+		}),
+		rejectWithValue: (key, value) => child.send({
+			action: 'reject-value',
+			key,
+			value
+		}),
+		rejectWithNothing: key => child.send({
+			action: 'reject-nothing',
+			key
+		}),
 
 		// tell the child to handle the promise previously rejected
-		handle: key => child.send({action: 'handle', key}),
+		handle: key => child.send({
+			action: 'handle',
+			key
+		}),
 
 		// tell the child to reinstall loudRejection
 		reinstall: () => child.send({action: 'reinstall'}),
