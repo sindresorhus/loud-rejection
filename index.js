@@ -5,20 +5,14 @@ var currentlyUnhandled = require('currently-unhandled');
 
 var installed = false;
 
-function outputRejectedMessage(err) {
-	if (!(err instanceof Error)) {
-		err = new Error('Promise rejected with value: ' + util.inspect(err));
-	}
-
-	console.error(err.stack);
-}
-
-module.exports = function () {
+module.exports = function (log) {
 	if (installed) {
 		return;
 	}
 
 	installed = true;
+
+	log = log || console.error;
 
 	var listUnhandled = currentlyUnhandled();
 
@@ -27,7 +21,13 @@ module.exports = function () {
 
 		if (unhandledRejections.length > 0) {
 			unhandledRejections.forEach(function (x) {
-				outputRejectedMessage(x.reason);
+				var err = x.reason;
+
+				if (!(err instanceof Error)) {
+					err = new Error('Promise rejected with value: ' + util.inspect(err));
+				}
+
+				log(err.stack);
 			});
 
 			process.exitCode = 1;
