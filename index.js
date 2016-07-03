@@ -6,11 +6,11 @@ var currentlyUnhandled = require('currently-unhandled');
 var installed = false;
 
 function outputRejectedMessage(err) {
-	if (err instanceof Error) {
-		console.error(err.stack);
-	} else {
-		console.error('Promise rejected with value: ' + util.inspect(err));
+	if (!(err instanceof Error)) {
+		err = new Error('Promise rejected with value: ' + util.inspect(err));
 	}
+
+	console.error(err.stack);
 }
 
 module.exports = function () {
