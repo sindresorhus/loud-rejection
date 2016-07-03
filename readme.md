@@ -51,6 +51,18 @@ import 'loud-rejection/register';
 ```
 
 
+## API
+
+### loudRejection([log])
+
+#### log
+
+Type: `Function`<br>
+Default: `console.error`
+
+Custom logging function to print the rejected promise. Receives the error stack.
+
+
 ## License
 
 MIT © [Sindre Sorhus](https://sindresorhus.com)

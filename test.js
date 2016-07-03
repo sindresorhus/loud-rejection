@@ -2,6 +2,7 @@ import {fork} from 'child_process';
 import test from 'ava';
 import getStream from 'get-stream';
 import delay from 'delay';
+import execa from 'execa';
 
 function tick(time) {
 	// slow things down for reliable tests on Travis CI
@@ -169,4 +170,10 @@ test('rejection with no value', async t => {
 	await child.kill();
 
 	t.regex(await child.stderr, /Promise rejected with value: undefined/);
+});
+
+test('custom log function', async t => {
+	// TODO: use execa `reject: false` option
+	const stdout = await execa('node', ['fixture-custom-log.js']).catch(err => err.stdout);
+	t.is(stdout.split('\n')[0], 'custom-log Error: foo');
 });
