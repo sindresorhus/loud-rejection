@@ -10,7 +10,7 @@ Use this in top-level things like tests, CLI tools, apps, etc, **but not in reus
 Not needed in the browser as unhandled rejections are shown in the console.
 
 > #### ⚠️ &nbsp; Breaking change in minor version
-> Since v1.1.0, loud-rejection no longer kills your process in the event of an unhandled rejection. It just logs them to STDERR when the process ends.
+> Since v1.1.0, loud-rejection no longer kills your process in the event of an unhandled rejection.
 
 ## Install
 
