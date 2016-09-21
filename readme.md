@@ -4,9 +4,13 @@
 
 By default, promises fail silently if you don't attach a `.catch()` handler to them.
 
-Use this in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**<br>
-Not needed in the browser as unhandled promises are shown in the console.
+This tool keeps track of unhandled rejections globally. If any remain unhandled at the end of your process, it logs them to STDERR.
 
+Use this in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**<br>
+Not needed in the browser as unhandled rejections are shown in the console.
+
+> #### ⚠️ &nbsp; Breaking change in minor version
+> Since v1.1.0, loud-rejection no longer kills your process in the event of an unhandled rejection.
 
 ## Install
 
