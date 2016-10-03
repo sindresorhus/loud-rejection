@@ -10,7 +10,8 @@ Use this in top-level things like tests, CLI tools, apps, etc, **but not in reus
 Not needed in the browser as unhandled rejections are shown in the console.
 
 > #### ⚠️ &nbsp; Breaking change in minor version
-> Since v1.1.0, loud-rejection no longer kills your process in the event of an unhandled rejection.
+> Since v1.1.0, loud-rejection no longer kills your process in the event of an unhandled rejection. If you want the old behavior, see [hard-rejection](https://github.com/sindresorhus/hard-rejection).
+
 
 ## Install
 
@@ -65,6 +66,11 @@ Type: `Function`<br>
 Default: `console.error`
 
 Custom logging function to print the rejected promise. Receives the error stack.
+
+
+## Related
+
+- [hard-rejection](https://github.com/sindresorhus/hard-rejection) - Make unhandled promise rejections fail hard right away instead of the default silent fail
 
 
 ## License
