@@ -71,6 +71,7 @@ Custom logging function to print the rejected promise. Receives the error stack.
 ## Related
 
 - [hard-rejection](https://github.com/sindresorhus/hard-rejection) - Make unhandled promise rejections fail hard right away instead of the default silent fail
+- [More…](https://github.com/sindresorhus/promise-fun)
 
 
 ## License
