@@ -4,7 +4,7 @@
 
 By default, promises fail silently if you don't attach a `.catch()` handler to them.
 
-This tool keeps track of unhandled rejections globally. If any remain unhandled at the end of your process, it logs them to STDERR.
+This tool keeps track of unhandled rejections globally. If any remain unhandled at the end of your process, it logs them to STDERR and exits with code 1.
 
 Use this in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**<br>
 Not needed in the browser as unhandled rejections are shown in the console.
