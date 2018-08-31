@@ -16,7 +16,7 @@ Not needed in the browser as unhandled rejections are shown in the console.
 ## Install
 
 ```
-$ npm install --save loud-rejection
+$ npm install loud-rejection
 ```
 
 
@@ -26,7 +26,7 @@ $ npm install --save loud-rejection
 const loudRejection = require('loud-rejection');
 const promiseFn = require('promise-fn');
 
-// Install the unhandledRejection listeners
+// Install the `unhandledRejection` listeners
 loudRejection();
 
 promiseFn();

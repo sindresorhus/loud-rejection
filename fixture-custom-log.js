@@ -1,8 +1,8 @@
 'use strict';
-var loudRejection = require('./');
+const loudRejection = require('.');
 
-loudRejection(function (str) {
-	console.log('custom-log', str);
+loudRejection(string => {
+	console.log('custom-log', string);
 });
 
 Promise.reject(new Error('foo'));

@@ -4,10 +4,8 @@ import getStream from 'get-stream';
 import delay from 'delay';
 import execa from 'execa';
 
-function tick(time) {
-	// slow things down for reliable tests on Travis CI
-	return delay(process.env.CI ? time * 10 : time);
-}
+// Slow things down for reliable tests on Travis CI
+const tick = time => delay(process.env.CI ? time * 10 : time);
 
 test.cb.beforeEach(t => {
 	const child = fork('fixture.js', {silent: true});
@@ -19,7 +17,7 @@ test.cb.beforeEach(t => {
 	);
 
 	t.context = {
-		// tell the child to create a promise, and reject it
+		// Tell the child to create a promise, and reject it
 		rejectWithError: (key, message) => child.send({
 			action: 'reject-error',
 			key,
@@ -35,28 +33,28 @@ test.cb.beforeEach(t => {
 			key
 		}),
 
-		// tell the child to handle the promise previously rejected
+		// Tell the child to handle the promise previously rejected
 		handle: key => child.send({
 			action: 'handle',
 			key
 		}),
 
-		// tell the child to reinstall loudRejection
+		// Tell the child to reinstall loudRejection
 		reinstall: () => child.send({action: 'reinstall'}),
 
-		// kill the child (returns a promise for when the child is done)
+		// Kill the child (returns a promise for when the child is done)
 		kill: () => {
 			child.kill();
 			return exit;
 		},
 
-		// the stdout of the child. Useful for debug
+		// The stdout of the child. Useful for debug
 		stdout: getStream(child.stdout),
 
-		// the stderr of the child. This is where unhandledRejections will be logged
+		// The stderr of the child. This is where unhandledRejections will be logged
 		stderr: getStream(child.stderr),
 
-		// promise for when the child has exited
+		// Promise for when the child has exited
 		exit
 	};
 
