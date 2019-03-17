@@ -11,8 +11,8 @@ test.beforeEach.cb(t => {
 	const child = fork('fixture.js', {silent: true});
 
 	const exit = new Promise((resolve, reject) =>
-		child.on('exit', code =>
-			(code > 0 ? reject : resolve)(code)
+		child.on('exit', exitCode =>
+			(exitCode > 0 ? reject : resolve)(exitCode)
 		)
 	);
 

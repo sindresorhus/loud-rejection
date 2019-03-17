@@ -9,9 +9,6 @@ This tool keeps track of unhandled rejections globally. If any remain unhandled 
 Use this in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**<br>
 Not needed in the browser as unhandled rejections are shown in the console.
 
-> #### ⚠️ &nbsp; Breaking change in minor version
-> Since v1.1.0, loud-rejection no longer kills your process in the event of an unhandled rejection. If you want the old behavior, see [hard-rejection](https://github.com/sindresorhus/hard-rejection).
-
 
 ## Install
 
@@ -24,25 +21,25 @@ $ npm install loud-rejection
 
 ```js
 const loudRejection = require('loud-rejection');
-const promiseFn = require('promise-fn');
+const promiseFunction = require('promise-fn');
 
 // Install the `unhandledRejection` listeners
 loudRejection();
 
-promiseFn();
+promiseFunction();
 ```
 
 Without this module it's more verbose and you might even miss some that will fail silently:
 
 ```js
-const promiseFn = require('promise-fn');
+const promiseFunction = require('promise-fn');
 
-function error(err) {
-	console.error(err.stack);
+function error(error) {
+	console.error(error.stack);
 	process.exit(1);
 }
 
-promiseFn().catch(error);
+promiseFunction().catch(error);
 ```
 
 ### Register script
