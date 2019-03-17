@@ -5,10 +5,11 @@ const currentlyUnhandled = require('currently-unhandled');
 
 let installed = false;
 
-module.exports = (log = console.error) => {
+const loudRejection = (log = console.error) => {
 	if (installed) {
 		return;
 	}
+
 	installed = true;
 
 	const listUnhandled = currentlyUnhandled();
@@ -31,3 +32,6 @@ module.exports = (log = console.error) => {
 		}
 	});
 };
+
+module.exports = loudRejection;
+module.exports.default = loudRejection;
