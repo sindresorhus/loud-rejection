@@ -7,7 +7,7 @@ import execa from 'execa';
 // Slow things down for reliable tests on Travis CI
 const tick = time => delay(process.env.CI ? time * 10 : time);
 
-test.cb.beforeEach(t => {
+test.beforeEach.cb(t => {
 	const child = fork('fixture.js', {silent: true});
 
 	const exit = new Promise((resolve, reject) =>
@@ -172,6 +172,6 @@ test('rejection with no value', async t => {
 
 test('custom log function', async t => {
 	// TODO: use execa `reject: false` option
-	const stdout = await execa('node', ['fixture-custom-log.js']).catch(err => err.stdout);
+	const stdout = await execa('node', ['fixture-custom-log.js']).catch(error => error.stdout);
 	t.is(stdout.split('\n')[0], 'custom-log Error: foo');
 });
