@@ -34,4 +34,5 @@ const loudRejection = (log = console.error) => {
 };
 
 module.exports = loudRejection;
+// TODO: remove this in the next major version
 module.exports.default = loudRejection;

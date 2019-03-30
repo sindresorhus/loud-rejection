@@ -1,5 +1,5 @@
-import {expectType} from 'tsd-check';
-import loudRejection from '.';
+import {expectType} from 'tsd';
+import loudRejection = require('.');
 import './register';
 
 expectType<void>(loudRejection());
