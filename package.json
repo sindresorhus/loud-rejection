@@ -18,7 +18,8 @@
 	"files": [
 		"index.js",
 		"index.d.ts",
-		"register.js"
+		"register.js",
+		"register.d.ts"
 	],
 	"keywords": [
 		"promise",
