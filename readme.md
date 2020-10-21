@@ -9,6 +9,8 @@ This tool keeps track of unhandled rejections globally. If any remain unhandled 
 Use this in top-level things like tests, CLI tools, apps, etc, **but not in reusable modules.**<br>
 Not needed in the browser as unhandled rejections are shown in the console.
 
+**With [Node.js 15](https://medium.com/@nodejs/node-js-v15-0-0-is-here-deb00750f278), this package is moot as the default behavior then is to throw on unhandled rejections.**
+
 
 ## Install
 
