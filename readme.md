@@ -1,4 +1,4 @@
-# loud-rejection [![Build Status](https://travis-ci.org/sindresorhus/loud-rejection.svg?branch=master)](https://travis-ci.org/sindresorhus/loud-rejection) [![Coverage Status](https://coveralls.io/repos/github/sindresorhus/loud-rejection/badge.svg?branch=master)](https://coveralls.io/github/sindresorhus/loud-rejection?branch=master)
+# loud-rejection
 
 > Make unhandled promise rejections fail loudly instead of the default [silent fail](https://gist.github.com/benjamingr/0237932cee84712951a2)
 
