@@ -4,7 +4,7 @@ import getStream from 'get-stream';
 import delay from 'delay';
 import execa from 'execa';
 
-// Slow things down for reliable tests on Travis CI
+// Slow things down for reliable tests on CI.
 const tick = time => delay(process.env.CI ? time * 10 : time);
 
 test.beforeEach.cb(t => {
